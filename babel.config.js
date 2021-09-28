@@ -14,7 +14,6 @@ module.exports = function (api) {
             '@/constants': './constants/index',
             '@/components': './components/index',
             '@/screens': './screens/index',
-            '@/modules': './modules/index',
             '@/store/context': './store/context',
           },
         },

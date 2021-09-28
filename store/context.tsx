@@ -20,7 +20,17 @@ const Context = createContext<ContextType>({
   },
 });
 
-const context = (): ContextType => useContext(Context);
+function context(): {
+  state: StateType;
+  set: (key: string, val: unknown) => void;
+} {
+  const { state, dispatch } = useContext(Context);
+
+  const set = (key: string, val: unknown) =>
+    dispatch({ type: "set", key: key, val: val });
+
+  return { state, set };
+}
 
 function Provider(props: { children: React.ReactNode }): JSX.Element {
   const [state, dispatch] = useReducer(
@@ -41,8 +51,4 @@ function Provider(props: { children: React.ReactNode }): JSX.Element {
   );
 }
 
-const set = (key: string, val: unknown): ActionType => {
-  return { type: "set", key: key, val: val };
-};
-
-export { Provider, context, set };
+export { Provider, context };

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Text as DefaultText, View as DefaultView } from "react-native";
 import { Colors } from "@/constants";
 import { useColorScheme } from "@/hooks";
@@ -38,6 +38,5 @@ export function View(props: ViewProps): JSX.Element {
     { light: lightColor, dark: darkColor },
     "background"
   );
-
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }

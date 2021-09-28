@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useCachedResources, useColorScheme } from "@/hooks";
-import { Navigation } from "@/components";
+import { GlobalStyle, Navigation } from "@/components";
 import { Provider } from "@/store/context";
 
 export default function App(): JSX.Element | null {
@@ -12,12 +12,15 @@ export default function App(): JSX.Element | null {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Provider>
-          <Navigation colorScheme={colorScheme} />
-        </Provider>
-        <StatusBar />
-      </SafeAreaProvider>
+      <>
+        <GlobalStyle />
+        <SafeAreaProvider>
+          <Provider>
+            <Navigation colorScheme={colorScheme} />
+          </Provider>
+          <StatusBar />
+        </SafeAreaProvider>
+      </>
     );
   }
 }

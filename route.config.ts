@@ -52,9 +52,25 @@ function option(additionalOptions?: Record<string, any>) {
     transitionSpec: {
       open: {
         animation: "spring",
+        config: {
+          stiffness: 1000,
+          damping: 500,
+          mass: 1,
+          overshootClamping: true,
+          restDisplacementThreshold: 0.01,
+          restSpeedThreshold: 0.01,
+        },
       },
       close: {
         animation: "spring",
+        config: {
+          stiffness: 1000,
+          damping: 500,
+          mass: 1,
+          overshootClamping: true,
+          restDisplacementThreshold: 0.01,
+          restSpeedThreshold: 0.01,
+        },
       },
     },
   };
